@@ -1,18 +1,49 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from 'expo-router';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { practiceTheme } from '@/features/practice/theme';
 
-SplashScreen.preventAutoHideAsync();
+const { colors } = practiceTheme;
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <Stack
+      initialRouteName="(drawer)"
+      screenOptions={{
+        animation: 'slide_from_right',
+        headerBackButtonDisplayMode: 'minimal',
+        headerShown: false,
+      }}>
+      <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="root-two"
+        options={{
+          title: 'Stack 2',
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: colors.surface,
+          },
+          headerTintColor: colors.ink,
+          headerTitleStyle: {
+            fontWeight: '700',
+          },
+        }}
+      />
+      <Stack.Screen
+        name="root-three"
+        options={{
+          title: 'Stack 3',
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: colors.surface,
+          },
+          headerTintColor: colors.ink,
+          headerTitleStyle: {
+            fontWeight: '700',
+          },
+        }}
+      />
+    </Stack>
   );
 }

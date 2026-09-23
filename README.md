@@ -1,6 +1,8 @@
-# Welcome to your Expo app 👋
+# Expo Router Nested Navigation Practice
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This Expo SDK 57 project demonstrates a nested navigation architecture with
+Expo Router: a root native Stack containing a Drawer, whose first route owns
+native Bottom Tabs.
 
 ## Get started
 
@@ -23,17 +25,23 @@ In the output, you'll find options to open the app in a
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+You can start developing by editing the files inside `src/app`. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Navigation architecture
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+Root Stack
+├── Drawer
+│   ├── Native Bottom Tabs: Home, Tab Two, Tab Three, Tab Four
+│   ├── Drawer Screen 2
+│   └── Drawer Screen 3
+├── Root Stack Screen 2
+└── Root Stack Screen 3
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Route adapters live in `src/app`; reusable dummy screens live in
+`src/features/practice`. The root stack owns the visible header, while the
+Drawer and Native Bottom Tabs hide theirs to avoid duplicate headers.
 
 ### Other setup steps
 
@@ -54,3 +62,4 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Layered-Modular-MVVM-Expo-Mobile-App-Architecture
