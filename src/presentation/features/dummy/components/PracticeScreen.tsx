@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { practiceTheme } from '../theme';
+import { practiceTheme } from '@/presentation/theme';
 
 type PracticeAction = {
   label: string;

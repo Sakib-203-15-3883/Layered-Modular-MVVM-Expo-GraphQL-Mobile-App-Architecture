@@ -1,9 +1,9 @@
 import { useSegments } from "expo-router";
 import { Drawer } from "expo-router/drawer";
 
-import PracticeDrawerContent from "@/features/practice/components/PracticeDrawerContent";
-import { PracticeDrawerIcon } from "@/features/practice/components/PracticeDrawerIcon";
-import { practiceTheme } from "@/features/practice/theme";
+import PracticeDrawerContent from "@/presentation/features/dummy/components/PracticeDrawerContent";
+import { PracticeDrawerIcon } from "@/presentation/features/dummy/components/PracticeDrawerIcon";
+import { practiceTheme } from "@/presentation/theme";
 
 const { colors } = practiceTheme;
 

@@ -7,7 +7,7 @@ import {
 import { Alert, StyleSheet, Text, View } from "react-native";
 
 import { PracticeDrawerIcon } from "./PracticeDrawerIcon";
-import { practiceTheme } from "../theme";
+import { practiceTheme } from "@/presentation/theme";
 
 const { colors } = practiceTheme;
 
