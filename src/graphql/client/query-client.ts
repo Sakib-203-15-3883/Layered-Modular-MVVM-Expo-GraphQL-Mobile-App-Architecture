@@ -8,7 +8,6 @@ export const queryClient = new QueryClient({
       gcTime: 1000 * 60 * 30, // 30 minutes
       refetchOnWindowFocus: false,
       // Queries pause while offline instead of running and failing.
-      //
       // This is what keeps *connectivity* out of *error* state. Under 'always'
       // an offline query fires anyway, burns its retries in a couple of
       // seconds and settles terminally in `error` — which is indistinguishable

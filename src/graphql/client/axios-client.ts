@@ -2,13 +2,13 @@
 import axios from "axios";
 
 // API URL from environment variables
-const API_URL = process.env.EXPO_PUBLIC_GRAPHQL_URL
+const API_URL = process.env.EXPO_PUBLIC_GRAPHQL_URL;
 
 // Create axios instance
 const apiClient = axios.create({
   baseURL: API_URL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
   timeout: 30000, // 30 second timeout
 });
@@ -20,7 +20,7 @@ const apiClient = axios.create({
 
 export async function graphqlRequest<TData = any>(
   query: string,
-  variables?: Record<string, any>
+  variables?: Record<string, any>,
 ) {
   try {
     // console.log('GraphQL Request:', {
@@ -28,7 +28,7 @@ export async function graphqlRequest<TData = any>(
     //   variables,
     // });
 
-    const response = await apiClient.post('', {
+    const response = await apiClient.post("", {
       query,
       variables,
     });
@@ -36,16 +36,16 @@ export async function graphqlRequest<TData = any>(
     const { data, errors } = response.data;
 
     if (errors && errors.length > 0) {
-      // console.error('❌ GraphQL Errors:', JSON.stringify(errors, null, 2));
+      // console.error(' GraphQL Errors:', JSON.stringify(errors, null, 2));
     }
 
     if (data) {
-      // console.log('✅ GraphQL Response:', JSON.stringify(data, null, 2));
+      // console.log(' GraphQL Response:', JSON.stringify(data, null, 2));
     }
 
     return { data, errors };
   } catch (error: any) {
-    // console.error('❌ Request failed:', error.message);
+    // console.error(' Request failed:', error.message);
 
     if (error.response) {
       // console.error('Response status:', error.response.status);
